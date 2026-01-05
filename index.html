@@ -49,89 +49,90 @@
         
         <!-- เครื่องมือวิเคราะห์สถานะสัญญา -->
         <div id="js-analyzer" class="bg-[#D1E7FF] p-6 md:p-8 rounded-xl shadow-xl mb-12 border-4 border-[#0A2463]">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0A2463] text-center mb-6">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0A2463] text-center mb-6 text-shadow">
                 ✨ เครื่องมือวิเคราะห์สถานะสัญญา ✨
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <!-- ข้อมูลระยะเวลา -->
-                <div>
-                    <label for="totalDuration" class="block text-sm font-medium text-[#0A2463]">ระยะเวลาดำเนินการของสัญญา (วัน)</label>
-                    <input type="number" id="totalDuration" value="100" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg" placeholder="เช่น 100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[#0A2463]">
+                <!-- ส่วนที่ 1: ข้อมูลระยะเวลา -->
+                <div class="bg-white/60 p-4 rounded-lg shadow-sm">
+                    <label for="totalDuration" class="block text-sm font-bold mb-1">1. ระยะเวลาดำเนินการของสัญญา (วัน)</label>
+                    <input type="number" id="totalDuration" value="100" min="1" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
                 </div>
-                <div>
-                    <label for="startDate" class="block text-sm font-medium text-[#0A2463]">วันที่เริ่มสัญญา (DD/MM/YYYY)</label>
-                    <input type="text" id="startDate" placeholder="เช่น 01/01/2025" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg">
+                <div class="bg-white/60 p-4 rounded-lg shadow-sm">
+                    <label for="startDate" class="block text-sm font-bold mb-1">2.1 วันที่เริ่มสัญญา (DD/MM/YYYY)</label>
+                    <input type="text" id="startDate" placeholder="เช่น 01/01/2568" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
                 </div>
                 
-                <div>
-                    <label for="currentDate" class="block text-sm font-medium text-[#0A2463]">วันที่ปัจจุบัน (ณ วันที่ตรวจสอบ) (DD/MM/YYYY)</label>
-                    <input type="text" id="currentDate" placeholder="เช่น 10/02/2025" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg">
+                <div class="bg-white/60 p-4 rounded-lg shadow-sm">
+                    <label for="currentDate" class="block text-sm font-bold mb-1">2.2 วันที่ปัจจุบัน (ณ วันที่ตรวจสอบ) (DD/MM/YYYY)</label>
+                    <input type="text" id="currentDate" placeholder="เช่น 10/02/2568" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-[#0A2463]">นับระยะเวลาที่ดำเนินการ (วัน)</label>
-                    <div class="mt-1 block w-full rounded-md bg-gray-100 text-gray-600 shadow-sm p-3 text-lg border border-gray-300" id="calculatedDays">รอการคำนวณ</div>
-                </div>
-
-                <hr class="md:col-span-2 border-[#3E92CC] opacity-30 my-2">
-
-                <!-- ข้อมูลแผนงานและผลงาน (แผนงานมาก่อนผลงาน) -->
-                <div>
-                    <label for="accumulatedPlan" class="block text-sm font-medium text-[#0A2463]">แผนงานสะสม (%)</label>
-                    <input type="number" id="accumulatedPlan" value="100" min="0" max="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg" placeholder="แผนงานสะสมตามสัญญา">
-                </div>
-                <div>
-                    <label for="currentProgress" class="block text-sm font-medium text-[#0A2463]">ผลงานสะสมจริง (%)</label>
-                    <input type="number" id="currentProgress" value="40" min="0" max="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg" placeholder="ผลงานที่ทำได้จริง">
-                </div>
-
-                <div>
-                    <label for="monthlyPlan" class="block text-sm font-medium text-[#0A2463]">แผนงานรายเดือน (%)</label>
-                    <input type="number" id="monthlyPlan" value="100" min="0" max="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg" placeholder="แผนงานเดือนนี้">
-                </div>
-                <div>
-                    <label for="monthlyProgress" class="block text-sm font-medium text-[#0A2463]">ผลงานรายเดือนจริง (%)</label>
-                    <input type="number" id="monthlyProgress" value="40" min="0" max="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg" placeholder="ผลงานที่ทำได้จริงเดือนนี้">
+                <div class="bg-gray-100 p-4 rounded-lg border border-gray-300 shadow-inner">
+                    <label class="block text-sm font-bold mb-1">นับระยะเวลาที่ดำเนินการ (วัน)</label>
+                    <div class="text-gray-700 text-xl font-black" id="calculatedDays">รอการคำนวณ</div>
+                    <p class="text-[10px] text-gray-500 italic mt-1">* นับรวมวันที่เริ่มและวันตรวจสอบ (+1 วัน)</p>
                 </div>
 
                 <hr class="md:col-span-2 border-[#3E92CC] opacity-30 my-2">
 
-                <!-- มูลค่าสัญญาและค่าปรับ -->
-                <div>
-                    <label for="contractValue" class="block text-sm font-medium text-[#0A2463]">มูลค่าสัญญา (บาท)</label>
-                    <input type="text" id="contractValue" value="1,000,000" oninput="formatNumber(this)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg">
+                <!-- ส่วนที่ 2: แผนงานและผลงาน (แผนงานมาก่อนผลงาน) -->
+                <div class="bg-blue-50/80 p-4 rounded-lg border border-blue-200">
+                    <label for="accumulatedPlan" class="block text-sm font-bold mb-1">3. แผนงานสะสม (%)</label>
+                    <input type="number" id="accumulatedPlan" value="100" min="0" max="100" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
                 </div>
-                <div>
-                    <label for="dailyFineRate" class="block text-sm font-medium text-[#0A2463]">อัตราค่าปรับรายวัน (%)</label>
-                    <input type="number" id="dailyFineRate" value="0.1" step="0.01" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 text-lg">
+                <div class="bg-blue-50/80 p-4 rounded-lg border border-blue-200">
+                    <label for="currentProgress" class="block text-sm font-bold mb-1">3.1 ผลงานสะสมจริง (%)</label>
+                    <input type="number" id="currentProgress" value="40" min="0" max="100" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
+                </div>
+
+                <div class="bg-blue-50/80 p-4 rounded-lg border border-blue-200">
+                    <label for="monthlyPlan" class="block text-sm font-bold mb-1">4. แผนงานรายเดือน (%)</label>
+                    <input type="number" id="monthlyPlan" value="100" min="0" max="100" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
+                </div>
+                <div class="bg-blue-50/80 p-4 rounded-lg border border-blue-200">
+                    <label for="monthlyProgress" class="block text-sm font-bold mb-1">4.1 ผลงานรายเดือนจริง (%)</label>
+                    <input type="number" id="monthlyProgress" value="40" min="0" max="100" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
+                </div>
+
+                <hr class="md:col-span-2 border-[#3E92CC] opacity-30 my-2">
+
+                <!-- ส่วนที่ 3: มูลค่าและค่าปรับ -->
+                <div class="bg-white/60 p-4 rounded-lg shadow-sm">
+                    <label for="contractValue" class="block text-sm font-bold mb-1">5. มูลค่าสัญญา (บาท)</label>
+                    <input type="text" id="contractValue" value="1,000,000" oninput="formatNumber(this)" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
+                </div>
+                <div class="bg-white/60 p-4 rounded-lg shadow-sm">
+                    <label for="dailyFineRate" class="block text-sm font-bold mb-1">6. อัตราค่าปรับรายวัน (%)</label>
+                    <input type="number" id="dailyFineRate" value="0.25" step="0.01" class="w-full rounded-md border-gray-300 p-2 text-lg focus:ring-2 focus:ring-[#3E92CC] outline-none">
                 </div>
             </div>
             
-            <button onclick="analyzeScenario()" class="w-full bg-[#0A2463] hover:bg-[#1E3A8A] text-white font-bold py-4 rounded-lg shadow-md transition duration-300 text-xl">
-                วิเคราะห์สถานะสัญญา
+            <button onclick="analyzeScenario()" class="w-full bg-[#0A2463] hover:bg-[#1E3A8A] text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 text-xl flex items-center justify-center transform hover:scale-[1.01] active:scale-[0.99]">
+                <span class="mr-2">🔍</span> วิเคราะห์สถานะสัญญาตาม ว124
             </button>
 
-            <div id="loadingIndicator" class="mt-4 text-center text-[#0A2463] hidden">กำลังประมวลผล... ⏳</div>
+            <div id="loadingIndicator" class="mt-4 text-center text-[#0A2463] hidden font-bold">กำลังประมวลผล Logic... ⏳</div>
 
-            <div id="analysisResult" class="mt-6 p-6 bg-white rounded-lg shadow-inner border border-gray-200 min-h-20 font-semibold text-[#0A2463]">
-                <p class="text-gray-500 text-center">ป้อนข้อมูลและกดปุ่มวิเคราะห์เพื่อแสดงผล...</p>
+            <div id="analysisResult" class="mt-6 p-6 bg-white rounded-lg shadow-inner border-2 border-dashed border-gray-200 min-h-[100px] font-semibold text-[#0A2463]">
+                <p class="text-gray-500 text-center py-4">กรุณากรอกข้อมูลวันที่และผลงาน จากนั้นกดปุ่มวิเคราะห์เพื่อตรวจสอบเกณฑ์</p>
             </div>
         </div>
 
-        <!-- Workflow Diagram -->
+        <!-- Section: Workflow Diagram -->
         <div class="flex flex-col items-center">
-            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8">
+            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8 border-l-8 border-[#3E92CC]">
                 <div class="text-2xl font-bold text-[#0A2463]">จุดเริ่มต้น: การติดตามผลงาน</div>
-                <p class="mt-2 text-gray-600">เมื่อพบว่าผลงานล่าช้ากว่าแผนงานที่กำหนด</p>
+                <p class="mt-2 text-gray-600 text-sm">เมื่อตรวจพบว่าผลงานจริงมีความล่าช้ากว่าแผนงานที่กำหนด</p>
                 <div class="mt-4 border-t pt-4 text-sm">
-                    <p><strong class="text-[#3E92CC]">การดำเนินการ:</strong> คณะกรรมการตรวจรับพัสดุติดตามผลงานจริงเทียบกับแผน และแจ้งเตือนเป็นหนังสือ</p>
+                    <p><strong class="text-[#3E92CC]">การดำเนินการ:</strong> คณะกรรมการตรวจรับพัสดุเร่งรัดการทำงานและทำหนังสือแจ้งเตือนคู่สัญญา</p>
                 </div>
             </div>
 
             <div class="flow-connector h-12"></div>
 
-            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8">
-                <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 1: เกิน 50% ของระยะเวลาสัญญา</div>
+            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8 border-l-8 border-yellow-400">
+                <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 1: เกิน 50% ของสัญญา</div>
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-yellow-50 p-4 rounded border border-yellow-200 text-sm">
                         <p class="font-bold text-yellow-700 underline mb-1">เกณฑ์ 2.2.1</p>
@@ -139,15 +140,15 @@
                     </div>
                     <div class="bg-yellow-50 p-4 rounded border border-yellow-200 text-sm">
                         <p class="font-bold text-yellow-700 underline mb-1">เกณฑ์ 2.2.2</p>
-                        <p>ผลงานเดือน < 50% ของแผน และ สะสม < 50% ของแผน</p>
+                        <p>ผลงานจริง < 50% ของแผนงาน (ทั้งรายเดือนและสะสม)</p>
                     </div>
                 </div>
             </div>
 
             <div class="flow-connector h-12"></div>
 
-            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8">
-                 <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 2: เกิน 75% ของระยะเวลาสัญญา</div>
+            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8 border-l-8 border-orange-500">
+                 <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 2: เกิน 75% ของสัญญา</div>
                  <div class="mt-4 bg-orange-50 p-4 rounded border border-orange-200 text-sm">
                     <p class="font-bold text-orange-700 underline mb-1">เกณฑ์ 2.2.3</p>
                     <p>ผลงานสะสม < 65%</p>
@@ -156,9 +157,9 @@
 
             <div class="flow-connector h-12"></div>
 
-            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8">
-                <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 3: ครบกำหนดส่งมอบงาน</div>
-                 <p class="mt-2 text-gray-600">เมื่อครบกำหนดระยะเวลาส่งมอบงานตามสัญญา</p>
+            <div class="flow-card w-full max-w-2xl bg-white rounded-lg shadow-md p-6 text-center mb-8 border-l-8 border-red-600">
+                <div class="text-2xl font-bold text-[#0A2463]">จุดตรวจสอบที่ 3: ครบกำหนดสัญญา</div>
+                 <p class="mt-2 text-gray-600 text-sm italic">ณ วันครบกำหนดระยะเวลาส่งมอบงานตามที่ระบุในสัญญา</p>
                  <div class="mt-4 bg-red-50 p-4 rounded border border-red-200 text-sm">
                     <p class="font-bold text-red-700 underline mb-1">เกณฑ์ 2.2.4</p>
                     <p>ผลงานสะสม < 85%</p>
@@ -167,28 +168,28 @@
 
             <div class="flow-connector h-12"></div>
             
-            <div class="flow-card w-full max-w-2xl bg-yellow-50 border-2 border-yellow-500 p-6 text-center mb-8 shadow-lg">
+            <div class="flow-card w-full max-w-2xl bg-yellow-50 border-2 border-yellow-500 p-6 text-center mb-8 shadow-lg rounded-xl">
                 <div class="text-2xl font-bold text-yellow-700">จุดแจ้งเตือนก่อนค่าปรับสะสมใกล้ถึง 10%</div>
-                <div class="text-base text-yellow-600 font-semibold mt-1">(แจ้งเตือนภายใน 14-20 วันปฏิทิน)</div>
-                <p class="mt-4 text-gray-700 text-sm">แจ้งเตือนเป็นหนังสืออย่างเป็นทางการเพื่อให้ผู้รับจ้างรีบเร่งรัดงานหรือเตรียมขอผ่อนปรน</p>
+                <div class="text-base text-yellow-600 font-semibold mt-1">(ช่วงเฝ้าระวัง: 14-20 วันปฏิทิน ก่อนถึงเกณฑ์วิกฤต)</div>
+                <p class="mt-4 text-gray-700 text-sm font-medium">คณะกรรมการตรวจรับต้องส่งหนังสือแจ้งเตือนอย่างเป็นทางการเพื่อใช้ประกอบการพิจารณาบอกเลิกหรือผ่อนปรน</p>
             </div>
 
             <div class="flow-connector h-12"></div>
 
-            <div class="flow-card w-full max-w-2xl bg-[#0A2463] text-white rounded-lg shadow-xl p-6 text-center mb-8">
-                <div class="text-2xl font-bold text-[#FFF275]">จุดวิกฤต: ค่าปรับจะเกิน 10% (เกณฑ์ 2.2.5)</div>
-                <p class="mt-2 text-gray-300 text-sm">เสนอหัวหน้าหน่วยงานพิจารณาบอกเลิกสัญญา หรือผ่อนปรนตามระเบียบ</p>
+            <div class="flow-card w-full max-w-2xl bg-[#0A2463] text-white rounded-lg shadow-xl p-8 text-center mb-12 border-4 border-red-600">
+                <div class="text-2xl font-bold text-[#FFF275] mb-2 uppercase tracking-widest">จุดวิกฤต: ค่าปรับจะเกิน 10% (เกณฑ์ 2.2.5)</div>
+                <p class="mt-2 text-gray-200 text-sm">เข้าสู่ขั้นตอนเสนอความเห็นต่อหัวหน้าหน่วยงานเพื่อพิจารณาบอกเลิกสัญญา หรือการขอผ่อนปรนตามระเบียบพัสดุข้อ 183 วรรคสอง</p>
             </div>
 
-            <!-- Footer จัดวางขวาล่าง -->
-            <footer class="w-full mt-12 pb-6">
-                <p class="text-sm text-right text-gray-500">จัดทำโดย กปท.ฝจส.</p>
+            <!-- Footer -->
+            <footer class="w-full mt-12 pb-6 border-t pt-4">
+                <p class="text-sm text-right text-gray-500 font-bold">จัดทำโดย กปท.ฝจส.</p>
             </footer>
         </div>
     </div>
 
     <script>
-        // ฟังก์ชันจัดรูปแบบตัวเลข (ลูกน้ำ)
+        // ฟังก์ชันจัดรูปแบบตัวเลข (ใส่คอมม่า)
         function formatNumber(input) {
             let value = input.value.replace(/,/g, '');
             if (value !== "" && !isNaN(value)) {
@@ -196,16 +197,22 @@
             }
         }
         
-        // ฟังก์ชันแปลง DD/MM/YYYY เป็น Date Object (รองรับ พ.ศ.)
+        // ฟังก์ชันแปลง DD/MM/YYYY เป็น Date Object (รองรับ พ.ศ. > 2400)
         function parseDate(dateStr) {
+            if (!dateStr) return null;
             const parts = dateStr.split('/');
             if (parts.length !== 3) return null;
+            
             const day = parseInt(parts[0], 10);
-            const month = parseInt(parts[1], 10) - 1;
+            const month = parseInt(parts[1], 10) - 1; // JS months are 0-11
             let year = parseInt(parts[2], 10);
-            if (year > 2500) year -= 543; // แปลง พ.ศ. เป็น ค.ศ.
+            
+            // ตรวจสอบและแปลงปี พ.ศ. เป็น ค.ศ.
+            if (year > 2400) year -= 543;
+            
             const date = new Date(year, month, day);
-            return (date.getFullYear() === year && date.getMonth() === month) ? date : null;
+            // Validation วันที่ที่มีอยู่จริง
+            return (date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) ? date : null;
         }
 
         function analyzeScenario() {
@@ -224,15 +231,15 @@
             const resultDiv = document.getElementById('analysisResult');
             const loadingIndicator = document.getElementById('loadingIndicator');
 
-            if (!startDate || !currentDate || isNaN(totalDuration)) {
-                resultDiv.innerHTML = '<p class="text-red-600 text-center">❌ กรุณากรอกระยะเวลาและวันที่ในรูปแบบ DD/MM/YYYY ให้ถูกต้อง</p>';
+            if (!startDate || !currentDate || isNaN(totalDuration) || totalDuration <= 0) {
+                resultDiv.innerHTML = '<p class="text-red-600 text-center font-bold">❌ ข้อมูลไม่ถูกต้อง: กรุณาระบุระยะเวลาสัญญาและวันที่ (DD/MM/YYYY) ให้ครบถ้วน</p>';
                 return;
             }
 
-            // คำนวณวัน (นับรวมวันปัจจุบัน)
-            const diffTime = currentDate - startDate;
+            // --- Logic คำนวณระยะเวลา (นับรวมวันปัจจุบัน: +1 วัน) ---
+            const diffTime = currentDate.getTime() - startDate.getTime();
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            const elapsedTime = diffDays + 1; // นับรวมวันแรกและวันปัจจุบัน
+            const elapsedTime = diffDays + 1; // นับวันปัจจุบันตามที่ต้องการ
 
             document.getElementById('calculatedDays').textContent = elapsedTime + ' วัน';
             loadingIndicator.classList.remove('hidden');
@@ -244,70 +251,106 @@
             
             let analysis = [];
 
-            // วิเคราะห์เกณฑ์พิจารณาบอกเลิกสัญญา
+            // 1. วิเคราะห์เกณฑ์พิจารณาบอกเลิกสัญญา ( checkpoints ตามระเบียบ )
             if (timePercent > 50) {
+                // เกณฑ์ 2.2.1
                 if (accProgress < 25) {
-                    analysis.push({ code: '2.2.1', desc: `ผลงานสะสมต่ำกว่า 25% (${accProgress}%) เมื่อเวลาผ่านไปเกินครึ่งสัญญา` });
+                    analysis.push({ code: '2.2.1', status: 'WARN', desc: `ผลงานสะสมจริง (${accProgress}%) ต่ำกว่าร้อยละ 25` });
                 }
-                // เกณฑ์ 2.2.2 เทียบกับแผนงาน (ต่ำกว่าร้อยละ 50 ของแผน)
+                // เกณฑ์ 2.2.2 (เทียบผลงานกับร้อยละ 50 ของแผนงาน)
                 if (monthProgress < (monthPlan * 0.5) && accProgress < (accPlan * 0.5)) {
-                    analysis.push({ code: '2.2.2', desc: `ผลงานจริงต่ำกว่าแผนงานเกินกึ่งหนึ่ง (ทั้งรายเดือนและสะสม)` });
+                    analysis.push({ code: '2.2.2', status: 'WARN', desc: `ผลงานจริงต่ำกว่าแผนงานเกินกึ่งหนึ่ง (ทั้งยอดรายเดือนและสะสม)` });
                 }
             }
             if (timePercent > 75 && accProgress < 65) {
-                analysis.push({ code: '2.2.3', desc: `ผลงานสะสมต่ำกว่า 65% (${accProgress}%) เมื่อเวลาผ่านไปเกิน 3 ใน 4 ของสัญญา` });
+                // เกณฑ์ 2.2.3
+                analysis.push({ code: '2.2.3', status: 'WARN', desc: `ผลงานสะสมจริง (${accProgress}%) ต่ำกว่าร้อยละ 65 เมื่อล่วงเลยเกิน 3 ใน 4 ของสัญญา` });
             }
             if (isLate && accProgress < 85) {
-                analysis.push({ code: '2.2.4', desc: `ผลงานสะสมต่ำกว่า 85% (${accProgress}%) เมื่อครบกำหนดระยะเวลาส่งมอบงานตามสัญญา` });
+                // เกณฑ์ 2.2.4 (เงื่อนไข: ครบกำหนดสัญญา AND ผลงาน < 85%)
+                analysis.push({ code: '2.2.4', status: 'CRITICAL', desc: `ผลงานสะสมจริง (${accProgress}%) ต่ำกว่าร้อยละ 85 ณ วันครบกำหนดสัญญา` });
             }
 
-            // วิเคราะห์ค่าปรับและ 2.2.5
+            // 2. วิเคราะห์ค่าปรับและ Remaining Days to 10%
             let fineInfo = '';
+            const daysToTenPercentTotal = Math.floor(10 / fineRate); // วันที่ปรับได้สูงสุดก่อนถึง 10%
+
             if (isLate) {
                 const lateDays = elapsedTime - totalDuration;
                 const totalFinePercent = lateDays * fineRate;
                 const totalFineBaht = (totalFinePercent / 100) * contractVal;
-                const daysToTenPercent = Math.floor(10 / fineRate);
-                const remainingToTenPercent = daysToTenPercent - lateDays;
+                const remainingToTenPercent = daysToTenPercentTotal - lateDays;
 
                 fineInfo = `
-                    <div class="p-3 mb-4 bg-gray-50 rounded-lg border">
-                        <h4 class="text-lg font-bold text-[#3E92CC] mb-2">📊 รายละเอียดการคำนวณค่าปรับ:</h4>
-                        <p class="ml-4 text-sm">วันปรับสะสม: <span class="text-red-600 font-bold">${lateDays} วัน</span></p>
-                        <p class="ml-4 text-sm">มูลค่าค่าปรับต่อวัน: ${finePerDay.toLocaleString('th-TH', {minimumFractionDigits: 2})} บาท</p>
-                        <p class="ml-4 text-sm">ค่าปรับสะสมรวม: <span class="text-red-600 font-bold">${totalFineBaht.toLocaleString('th-TH', {minimumFractionDigits: 2})} บาท (${totalFinePercent.toFixed(2)}%)</span></p>
+                    <div class="p-4 mb-4 bg-gray-50 rounded-lg border-2 border-[#3E92CC] shadow-inner">
+                        <h4 class="text-lg font-bold text-[#3E92CC] mb-3 flex items-center underline decoration-dotted">
+                            <span class="mr-2">📊</span> สรุปรายละเอียดค่าปรับ:
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                            <p>วันปรับสะสม: <span class="text-red-600 font-black">${lateDays} วัน</span></p>
+                            <p>มูลค่าค่าปรับต่อวัน: ${finePerDay.toLocaleString('th-TH', {minimumFractionDigits: 2})} บาท</p>
+                            <p>ค่าปรับรวม (บาท): <span class="text-red-600 font-black">${totalFineBaht.toLocaleString('th-TH', {minimumFractionDigits: 2})} บาท</span></p>
+                            <p>คิดเป็นเปอร์เซ็นต์สะสม: <span class="text-red-600 font-black">${totalFinePercent.toFixed(2)}%</span></p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <p class="font-bold text-[#0A2463]">⌛ วันคงเหลือก่อนค่าปรับถึงเกณฑ์วิกฤต (Remaining Days to 10%):</p>
+                            <p class="text-3xl ${remainingToTenPercent <= 20 ? 'text-red-600' : 'text-green-600'} font-black mt-1">
+                                ${remainingToTenPercent > 0 ? remainingToTenPercent + ' วัน' : '❌ เกินเกณฑ์วิกฤต 10% แล้ว'}
+                            </p>
+                            <p class="text-[10px] text-gray-500 mt-2 italic">* คำนวณจาก (10 ÷ ${fineRate}%) - วันที่ปรับไปแล้ว ${lateDays} วัน</p>
+                        </div>
                     </div>
                 `;
 
+                // เกณฑ์ 2.2.5 และ Alerts
                 if (totalFinePercent >= 10) {
-                    analysis.push({ code: '2.2.5', status: 'CRITICAL', desc: `ค่าปรับสะสมถึง/เกิน 10% แล้ว (${totalFinePercent.toFixed(2)}%)` });
+                    analysis.push({ code: '2.2.5', status: 'CRITICAL', desc: `ค่าปรับสะสมเกินร้อยละ 10 ของวงเงินสัญญาแล้ว (${totalFinePercent.toFixed(2)}%)` });
                 } else if (remainingToTenPercent > 0 && remainingToTenPercent <= 20) {
-                    const color = remainingToTenPercent < 14 ? 'text-red-600' : 'text-yellow-600';
-                    analysis.push({ code: 'Alert', status: 'WARNING', desc: `<span class="${color} font-bold">เหลือเวลาอีก ${remainingToTenPercent} วัน จะถึงจุดที่ค่าปรับเท่ากับ 10% (ต้องเตรียมแจ้งเตือนตามขั้นตอน)</span>` });
+                    const isDanger = remainingToTenPercent < 14;
+                    const color = isDanger ? 'text-red-600' : 'text-orange-600';
+                    const icon = isDanger ? '🛑' : '⚠️';
+                    analysis.push({ code: 'FineAlert', status: 'WARNING', desc: `<span class="${color} font-black">${icon} แจ้งเตือน: เหลือเวลาอีกเพียง ${remainingToTenPercent} วัน จะถึงจุดวิกฤตที่ค่าปรับเท่ากับ 10%</span>` });
                 }
             } else {
-                fineInfo = `<p class="text-green-600 text-sm mb-4">✅ ยังไม่ครบกำหนดสัญญา: ยังไม่มีการเริ่มปรับ</p>`;
+                fineInfo = `
+                    <div class="p-4 mb-4 bg-green-50 rounded-lg border border-green-200 shadow-sm flex flex-col justify-center items-center">
+                        <p class="text-green-700 text-lg font-bold">✅ สถานะ: ยังไม่ครบกำหนดส่งมอบงาน (ยังไม่มีค่าปรับ)</p>
+                        <p class="text-xs text-green-600 mt-1 italic">สัญญานี้สามารถปรับได้สูงสุด ${daysToTenPercentTotal} วันปฏิทิน ก่อนจะถึงเกณฑ์ค่าปรับ 10%</p>
+                    </div>
+                `;
             }
 
-            // แสดงผลสรุป
-            let html = `<h3 class="text-xl font-bold mb-3 border-b pb-2 text-[#0A2463]">สรุปผลการวิเคราะห์:</h3>${fineInfo}`;
+            // 3. ประกอบผลลัพธ์เพื่อแสดงบนหน้าจอ
+            let html = `<h3 class="text-xl font-bold mb-4 border-b pb-2 text-[#0A2463]">ผลการวิเคราะห์สัญญารายกรณี:</h3>${fineInfo}`;
             
             if (analysis.length > 0) {
                 html += `<div class="space-y-3">`;
                 analysis.forEach(item => {
-                    const isCritical = item.status === 'CRITICAL' || item.code === '2.2.4' || item.code === '2.2.5';
-                    const icon = isCritical ? '🛑' : '⚠️';
-                    const color = isCritical ? 'text-red-700' : 'text-yellow-700';
-                    const label = item.code === 'Alert' ? 'สถานะค่าปรับ' : 'เกณฑ์พิจารณาบอกเลิกสัญญา';
-                    html += `<p class="${color} text-sm">${icon} <strong>${label}:</strong> ${item.desc}</p>`;
+                    const isCrit = item.status === 'CRITICAL';
+                    const color = isCrit ? 'text-red-700' : 'text-orange-700';
+                    const bgColor = isCrit ? 'bg-red-50' : 'bg-orange-50';
+                    const borderColor = isCrit ? 'border-red-600' : 'border-orange-500';
+                    const labelName = (item.code === 'FineAlert') ? 'จุดแจ้งเตือนพิเศษ' : `เกณฑ์ข้อ ${item.code}`;
+                    
+                    html += `
+                        <div class="${color} ${bgColor} p-3 rounded border-l-8 ${borderColor} text-sm flex items-start shadow-sm">
+                            <div class="mr-2">${isCrit ? '🚫' : '⚠️'}</div>
+                            <div><strong>${labelName}:</strong> ${item.desc}</div>
+                        </div>
+                    `;
                 });
-                html += `</div>`;
+                html += `</div><p class="mt-4 text-[11px] text-gray-400 italic">* โปรดพิจารณาความเห็นประกอบระเบียบ ว124 เพื่อเสนอหัวหน้าหน่วยงานใช้ดุลพินิจ</p>`;
             } else {
-                html += `<p class="text-green-700">✅ สถานะปกติ: สัญญายังดำเนินการเป็นไปตามแผนงานหรือยังไม่เข้าเกณฑ์พิจารณาบอกเลิก</p>`;
+                html += `
+                    <div class="text-green-700 p-6 bg-green-50 rounded-lg border-2 border-green-200 text-center font-bold shadow-sm">
+                        🎉 ผลการวิเคราะห์: สถานะสัญญายังคงเป็นปกติ <br>
+                        <span class="text-sm font-normal">(ผลงานดำเนินการเป็นไปตามแผนงาน หรือยังไม่เข้าเกณฑ์เงื่อนไขในการพิจารณาบอกเลิกสัญญา)</span>
+                    </div>
+                `;
             }
 
-            resultDiv.innerHTML = html;
             loadingIndicator.classList.add('hidden');
+            resultDiv.innerHTML = html;
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
